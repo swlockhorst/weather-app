@@ -1,0 +1,44 @@
+<div>
+  <form (submit)="logZip()" [formGroup]="zipForm">
+    <mat-form-field>
+      <input formControlName="zip" id="zip" matInput placeholder="Enter your zipcode" required="true"/>
+
+      <mat-hint>example: 90210</mat-hint>
+
+      <mat-error *ngIf="zipForm.hasError('zip') && !zipForm.hasError('required')">
+        Please enter a valid Zip code
+      </mat-error>
+
+      <mat-error *ngIf="zipForm.hasError('required')">
+        Zip code is <strong>required</strong>
+      </mat-error>
+
+    </mat-form-field>
+
+    <br><br><br><br>
+
+    <button [disabled]="!zipForm.valid" mat-raised-button type="submit">Submit</button>
+
+    <br><br>
+  </form>
+
+</div>
+
+
+<ng-container *ngIf="data">
+
+  <mat-card>
+    <mat-card-title>
+      <div>{{data?.name | json}} Weather</div>
+    </mat-card-title>
+
+    <mat-card-content>
+      <img [src]='"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"' alt="">
+      <div>{{data.weather[0].description}}</div>
+      <div>{{ temperature }}F</div>
+      <div>{{data.wind.speed}} mph</div>
+    </mat-card-content>
+
+
+  </mat-card>
+</ng-container>
