@@ -8,11 +8,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSliderModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material';
+import { RxZipComponent } from './components/rx-zip/rx-zip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    RxZipComponent
   ],
   imports: [
     BrowserModule,
